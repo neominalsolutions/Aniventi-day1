@@ -1,0 +1,54 @@
+<p>
+  about works!
+</p>
+
+
+<!-- Angular Directive Builtin  -->
+<!-- ngStyle,ngClass,ngIf,ngSwitch,ngFor,disabled -->
+
+<!-- disabled -->
+<!-- inputtaki karakter sayısı 20 den fazla ise button disabled olsun -->
+<input (input)="onInput($event)" placeholder="type something">
+<button [disabled]="disabled">Btn</button>
+
+<hr>
+
+<!-- *ngFor (Ekranda bir neseneden gelen değerleri çoklamak için) --> 
+<div *ngFor="let car of ['audi','mercedes','bwm','volvo']">
+  
+  {{car}}
+
+  <span *ngIf="car == 'volvo'">
+    (En sağlam araç)
+  </span>
+
+</div>
+
+<hr>
+
+<!-- $event ile element ile etkileşime geçtiğimizde fırlatılan event -->
+<!-- $any nesnenin html tarafında any tipinde olmasını sağlayan bir servis -->
+<select (change)="selectedCity = $any($event).target.value">
+  <option [value]="city" *ngFor="let city of ['izmir','istanbul','ankara']">{{city}}</option>
+</select>
+
+<div [ngSwitch]="selectedCity">
+  <div *ngSwitchCase="'istanbul'">20 Milyon Nüfus</div>
+  <div *ngSwitchCase="'ankara'">Başkent</div>
+  <div *ngSwitchCase="'izmir'">Tatil</div>
+  <div *ngSwitchDefault >Seçim Yok</div>
+</div>
+
+<hr>
+
+
+<p [ngClass]="selectedCity == 'izmir' ? 'active':'passive'">
+  Ng Class Uygulama
+</p>
+
+<hr>
+
+<p [ngStyle]="selectedCity == 'istanbul' ? {'font-size':'24px'}:{'font-size':'12px'}">
+  Ng Style Uygulama
+</p>
+
