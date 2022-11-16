@@ -1,0 +1,31 @@
+<p>todo-page works!</p>
+
+<!-- {{todos | json}} -->
+<!-- subsribe ts de olduk todos üzerinden yaptık -->
+<ul>
+  <li *ngFor="let item of todos">
+    <a [routerLink]="['/todo-detail',item?.id]"> 
+   
+      {{item.title}}
+    </a>
+   
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li *ngFor="let item of todos$ | async">
+       <!-- /todo-detail/1, /todo-detail/2 -->
+    
+
+    <!-- /todo-detail?title=ali querystring formatı -->
+    <a [routerLink]="['/todo-detail']" [queryParams]="{title:item?.title}"> 
+      <!-- /todo-detail/1, /todo-detail/2 -->
+      {{item.title}} 2. Link
+    </a>
+
+  </li>
+</ul>
+
+<!-- async operatörü ile observable bir nesneye subscribe oluyoruz -->

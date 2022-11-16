@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { TodoPageComponent } from './todo-page/todo-page.component';
+import { TodoCardComponent } from './todo-card/todo-card.component';
 
 @NgModule({
   declarations: [	
     AppComponent,
     HomeComponent, // Component,Pipe,Directive yapısı
-      AboutComponent
+      AboutComponent, TodoPageComponent, TodoCardComponent
    ],
   imports: [
     // 3rd parti npm den çekeceğimiz moduller
