@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodoPageComponent } from './todo-page/todo-page.component';
+import { UserCreatePageComponent } from './user-create-page/user-create-page.component';
 
 // yönlendirme ayarları burada tanımlanıyor
 const routes: Routes = [
@@ -26,7 +27,11 @@ const routes: Routes = [
   {
     path:'todo-detail', //  querystringleri okumak için tanımladık
     component:TodoCardComponent
-  }
+  },
+   {
+    path:'user-create',
+    component:UserCreatePageComponent
+   }
 ];
 
 @NgModule({

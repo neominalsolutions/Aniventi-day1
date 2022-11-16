@@ -1,0 +1,32 @@
+<p>user-create-page works!</p>
+
+<!-- Sadece 1 Form Control ile çalışma örneğimiz -->
+<!-- [formControl] directive ile form kontrole bağlanıp çalışabiliriz -->
+<input [formControl]="username" placeholder="username">
+<span *ngIf="username.hasError('required')">Username boş geçilemez</span>
+
+<button (click)="username.reset()">Reset</button>
+
+<button (click)="onSetValue()">SetValue</button>
+
+<button [disabled]="username.invalid" (click)="onGetValue()">GetValue</button>
+
+<hr>
+
+<!-- Birden fazla olunca Form Group ile çalışabiliriz -->
+
+<!-- formControlName formgroup içerisindeki propertylere denk gelir eşler. -->
+<form [formGroup]="userCreate" (submit)="onSubmit()">
+
+  <input formControlName="name" placeholder="name">
+  <br>
+  <input formControlName="email" placeholder="email">
+  <span *ngIf="userCreate.get('email')?.hasError('email')">Eposta formatında giriniz</span>
+  <br>
+  <input  type="submit" value="Create">
+</form>
+
+<button (click)="onPatchValue()">onPatchValue</button>
+<button (click)="onReset()">onReset</button>
+<button (click)="onEmailSet()">onEmailSet</button>
+<button (click)="onNameGet()">onNameGet</button>
